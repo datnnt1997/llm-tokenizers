@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Visualizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.0.0-rc.4/dist/css/tom-select.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>LLM Tokenizers</h1>
+            <div class="description">
+                Welcome to LLL Tokenizers! Easily explore the world of large language models by entering your text, selecting your preferred LLM, and receiving a detailed tokenized output. Our system provides a list of tokens, token IDs, token count, and character count, all in an instant. Discover how language models process text with our user-friendly and intuitive tool. Try LLL Tokenizers now and unlock the power of tokenization!
+            </div>
+        </div>
+            <div class="mb-3">
+                <textarea id="inputText" class="inputTextArea" rows="7" placeholder="Enter your text here..."></textarea>
+            </div>
+            <div class="mb-3" id="select">
+                <select id="modelSelection" class="inputSelection" placeholder="Select LLM name"></select>
+            </div>
+            <button class="btn" onclick="clearText()">Clear</button>
+            <button class="btn" onclick="tokenize()">Tokenize</button>
+    </div>
+    <div class="container .overflow-hidden">
+        <div class="row row-cols-auto">
+            <div class="col mt-4">
+                <span>Tokens</span>
+                <div id="tokensCount" style="font-size: 28px">0</div>
+            </div>
+             <div class="col mt-4">
+                 <span>Characters</span>
+                <div id="charCount" style="font-size: 28px">0</div>
+             </div>
+        </div>
+        <div class="row mt-4">
+            <div id="tokens">
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.0.0-rc.4/dist/js/tom-select.complete.min.js"></script>
+    <script src="{{ url_for('static', path='/scripts.js') }}"></script>
+</body>
+</html>
